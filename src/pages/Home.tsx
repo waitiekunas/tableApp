@@ -13,6 +13,7 @@ export const Home: React.FC = () => {
 
   const filterEvenNumbers = (table: TableData[])=> table.filter(({id})=>id%2===0)
   const filterOddNumbers = (table: TableData[])=> table.filter(({id})=>id%2===1)
+  
   return (
     <div className="CenteredFlex">
       <table>

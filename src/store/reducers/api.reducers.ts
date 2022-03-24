@@ -9,26 +9,7 @@ export interface ApiState {
 
 export const initialAppState: ApiState = {
     tableData: [
-    {
-      id: 1,
-      name: 'Andrius'
-    },
-    {
-      id: 2,
-      name: 'Andrius'
-    },
-    {
-      id: 3,
-      name: 'Andrius'
-    },
-    {
-      id: 4,
-      name: 'Andrius'
-    },
-    {
-      id: 5,
-      name: 'Andrius'
-    }
+
   ]
 };
 
