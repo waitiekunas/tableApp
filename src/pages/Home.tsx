@@ -1,13 +1,36 @@
-import logo from '../logo.svg';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-export const Home: React.FC = () => (
-  <header className="App-header">
-    <img src={logo} className="App-logo" alt="logo" />
-    <p>
-      Edit <code>src/App.tsx</code> and save to reload.
-    </p>
-    <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-      Learn React
-    </a>
-  </header>
-);
+import { selectTableData } from '../store/selectors/api.selectors';
+import { TableData } from '../types/api.types';
+
+export const Home: React.FC = () => {
+  const tableInitialData = useSelector(selectTableData)
+  const [tableData, setTableData] = useState<TableData[]>([])
+  useEffect(()=>{
+    setTableData(tableInitialData)
+  },[tableInitialData])
+
+  return (
+    <div className="CenteredFlex">
+      <table>
+        <thead>
+          <tr>
+            <th>Number</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.map((value, index) => (
+            <tr key={`${index}_${value.name}`}>
+              <td>{value.id}</td>
+              <td>{value.name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+
+    </div>
+  );
+};
