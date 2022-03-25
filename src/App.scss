@@ -1,4 +1,54 @@
-.CenteredFlex{
-  display:flex;
+@mixin theme($width: 100%) {
+  display: flex;
   justify-content: center;
+  width: $width;
+}
+
+.centeredFlex {
+  @include theme;
+}
+
+.mainCenteredFlex {
+  @include theme(25%);
+}
+
+.columnFlex {
+  @include theme;
+  flex-direction: column;
+}
+
+.rowSpaceEvenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.marginTopMedium {
+  margin-top: 10%;
+}
+
+th,
+td {
+  width: 50%;
+  text-align: center;
+}
+
+th {
+  background-color: #06f;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+button {
+  background-color: #fff;
+  border: 2px solid #000;
+  color: #000;
+  cursor: pointer;
+  border-radius: 999px;
+}
+button:hover {
+  border-color: #06f;
+  color: #06f;
 }

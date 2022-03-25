@@ -1,24 +1,24 @@
 {
-    "posts": [
+    "users": [
         {
           "id": 1,
-          "name": "Andrius"
+          "name": "Jurgis"
         },
         {
           "id": 2,
-          "name": "Andrius"
+          "name": "Antanas"
         },
         {
           "id": 3,
-          "name": "Andrius"
+          "name": "Aloyzas"
         },
         {
           "id": 4,
-          "name": "Andrius"
+          "name": "Ir"
         },
         {
           "id": 5,
-          "name": "Andrius"
+          "name": "Martynas"
         }
       ]
   }

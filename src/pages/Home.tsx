@@ -1,41 +1,45 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import Button from '../components/Button';
+import { Table } from '../components/Table';
+import { ButtonTexts } from '../constants/texts';
+import { filterEvenNumbers, filterOddNumbers } from '../functions/utils';
+import { getTableDataAction } from '../store/actions/api.actions';
 import { selectTableData } from '../store/selectors/api.selectors';
 import { TableData } from '../types/api.types';
 
 export const Home: React.FC = () => {
-  const tableInitialData = useSelector(selectTableData)
-  const [tableData, setTableData] = useState<TableData[]>([])
-  useEffect(()=>{
-    setTableData(tableInitialData)
-  },[tableInitialData])
+  const dispatch = useDispatch();
+  const tableInitialData = useSelector(selectTableData);
+  const [tableData, setTableData] = useState<TableData[]>([]);
 
-  const filterEvenNumbers = (table: TableData[])=> table.filter(({id})=>id%2===0)
-  const filterOddNumbers = (table: TableData[])=> table.filter(({id})=>id%2===1)
-  
+  useEffect(() => {
+    setTableData(tableInitialData);
+  }, [tableInitialData]);
+
+  useEffect(() => {
+    dispatch(getTableDataAction());
+  }, []);
+
   return (
-    <div className="CenteredFlex">
-      <table>
-        <thead>
-          <tr>
-            <th>Number</th>
-            <th>Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tableData.map((value, index) => (
-            <tr key={`${index}_${value.name}`}>
-              <td>{value.id}</td>
-              <td>{value.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button onClick={()=>setTableData(tableInitialData)}>show all</button>
-      <button onClick={()=>setTableData(filterEvenNumbers(tableInitialData))}>show even</button>
-      <button onClick={()=>setTableData(filterOddNumbers(tableInitialData))}>show odd</button>
-
+    <div className="centeredFlex">
+      <div className="mainCenteredFlex marginTopMedium">
+      <div className="columnFlex">
+        <Table tableData={tableData} />
+        <div className="rowSpaceEvenly marginTopMedium">
+          <Button onClick={() => setTableData(tableInitialData)} buttonText={ButtonTexts.SHOWALL} />
+          <Button
+            onClick={() => setTableData(filterEvenNumbers(tableInitialData))}
+            buttonText={ButtonTexts.SHOWEVEN}
+          />
+          <Button
+            onClick={() => setTableData(filterOddNumbers(tableInitialData))}
+            buttonText={ButtonTexts.SHOWODD}
+          />
+        </div>
+      </div>
+      </div>
     </div>
   );
 };

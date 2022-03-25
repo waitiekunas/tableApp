@@ -1,3 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const loadedAppAction = createAction<boolean>('LOADED_FIRST_PAGE');
+import { TableData } from '../../types/api.types';
+
+export const getTableDataAction = createAction('GET_TABLE_DATA');
+export const setTableDataAction = createAction<TableData[]>('SET_TABLE_DATA');
+
