@@ -2,11 +2,11 @@ import { TableElementType } from '../../types/general.types';
 
 type Props = {
   elementType: TableElementType;
-  children: React.ReactNode;
+  content: string | number;
 };
 
-function DynamicTypeRow({ elementType, children }: Props) {
-  return elementType === TableElementType.TH ? <th>{children}</th> : <td>{children}</td>;
+function DynamicTypeRow({ elementType, content }: Props) {
+  return elementType === TableElementType.TH ? <th>{content}</th> : <td>{content}</td>;
 }
 
 export default DynamicTypeRow;

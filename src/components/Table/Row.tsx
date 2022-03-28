@@ -10,8 +10,8 @@ type Props = {
 function Row({ firstColumnValue, secondColumnValue, elementType }: Props) {
   return (
     <tr>
-      <DynamicTypeRow elementType={elementType}>{firstColumnValue}</DynamicTypeRow>
-      <DynamicTypeRow elementType={elementType}>{secondColumnValue}</DynamicTypeRow>
+      <DynamicTypeRow elementType={elementType} content={firstColumnValue} />
+      <DynamicTypeRow elementType={elementType} content={secondColumnValue} />
     </tr>
   );
 }

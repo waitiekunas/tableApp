@@ -8,9 +8,7 @@ export interface ApiState {
 }
 
 export const initialAppState: ApiState = {
-    tableData: [
-
-  ]
+  tableData: []
 };
 
 export const apiReducer = createReducer<ApiState>(initialAppState, (builder) => {

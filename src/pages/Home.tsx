@@ -25,20 +25,23 @@ export const Home: React.FC = () => {
   return (
     <div className="centeredFlex">
       <div className="mainCenteredFlex marginTopMedium">
-      <div className="columnFlex">
-        <Table tableData={tableData} />
-        <div className="rowSpaceEvenly marginTopMedium">
-          <Button onClick={() => setTableData(tableInitialData)} buttonText={ButtonTexts.SHOWALL} />
-          <Button
-            onClick={() => setTableData(filterEvenNumbers(tableInitialData))}
-            buttonText={ButtonTexts.SHOWEVEN}
-          />
-          <Button
-            onClick={() => setTableData(filterOddNumbers(tableInitialData))}
-            buttonText={ButtonTexts.SHOWODD}
-          />
+        <div className="columnFlex">
+          <Table tableData={tableData} />
+          <div className="rowSpaceEvenly marginTopMedium">
+            <Button
+              onClick={() => setTableData(tableInitialData)}
+              buttonText={ButtonTexts.SHOWALL}
+            />
+            <Button
+              onClick={() => setTableData(filterEvenNumbers(tableInitialData))}
+              buttonText={ButtonTexts.SHOWEVEN}
+            />
+            <Button
+              onClick={() => setTableData(filterOddNumbers(tableInitialData))}
+              buttonText={ButtonTexts.SHOWODD}
+            />
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );

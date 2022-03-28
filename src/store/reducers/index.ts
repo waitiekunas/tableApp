@@ -3,11 +3,11 @@ import { combineReducers } from 'redux';
 import { apiReducer, ApiState } from './api.reducers';
 
 export interface RootState {
-  apiState: ApiState
+  apiState: ApiState;
 }
 
 const allReducers = combineReducers({
-  apiState: apiReducer,
+  apiState: apiReducer
 });
 
 export default allReducers;

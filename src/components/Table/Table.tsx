@@ -11,7 +11,11 @@ function Table({ tableData }: Props) {
   return (
     <table>
       <thead>
-        <Row firstColumnValue={TableTexts.NUMBER} secondColumnValue={TableTexts.NAME} elementType={TableElementType.TH} />
+        <Row
+          firstColumnValue={TableTexts.NUMBER}
+          secondColumnValue={TableTexts.NAME}
+          elementType={TableElementType.TH}
+        />
       </thead>
       <tbody>
         {tableData.map((value, index) => (
@@ -19,7 +23,7 @@ function Table({ tableData }: Props) {
             key={`${index}_${value.name}`}
             firstColumnValue={value.id}
             secondColumnValue={value.name}
-            elementType={TableElementType.TR}
+            elementType={TableElementType.TD}
           />
         ))}
       </tbody>

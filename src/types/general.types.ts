@@ -1,4 +1,4 @@
 export enum TableElementType {
-    TR='td',
-    TH='th',
+  TD = 'td',
+  TH = 'th'
 }
